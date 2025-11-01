@@ -98,6 +98,14 @@
       gap: 18px;
     }
 
+    #offers-container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
     .card {
       grid-column: span 12;
       background: var(--card);
@@ -383,123 +391,9 @@
             d="M13.601 2.326A7.854 7.854 0 0 0 8.002 0C3.584 0 .003 3.579.003 7.993c0 1.406.366 2.777 1.058 3.99L0 16l4.155-1.092a7.964 7.964 0 0 0 3.847.982h.003c4.416 0 8.002-3.58 8.002-7.993a7.91 7.91 0 0 0-2.406-5.571zM8.002 14.65a6.548 6.548 0 0 1-3.33-.912l-.238-.141-2.468.649.658-2.406-.156-.248a6.493 6.493 0 0 1-.998-3.496c0-3.588 2.93-6.514 6.532-6.514a6.49 6.49 0 0 1 4.64 1.926 6.472 6.472 0 0 1 1.893 4.59c0 3.588-2.93 6.514-6.532 6.514zm3.59-4.903c-.195-.097-1.15-.568-1.329-.633-.179-.065-.31-.097-.44.097s-.504.633-.617.761-.228.145-.423.048c-.195-.097-.825-.304-1.572-.97-.58-.52-.97-1.16-1.085-1.355-.114-.195-.012-.3.085-.397.087-.087.195-.228.292-.342.097-.114.13-.195.195-.325.065-.13.032-.243-.016-.34-.048-.097-.44-1.06-.603-1.45-.159-.382-.322-.33-.44-.335-.114-.006-.244-.007-.374-.007s-.34.048-.52.243c-.179.195-.682.665-.682 1.623s.699 1.885.796 2.014c.097.13 1.377 2.1 3.34 2.942.467.202.831.322 1.114.412.467.149.892.128 1.228.078.374-.056 1.15-.469 1.312-.922.162-.454.162-.845.113-.922-.048-.078-.179-.13-.374-.228z" />
         </symbol>
       </svg>
-
-      <!-- العرض 1 -->
-      <section class="card" data-code="GHAZ-2025-10-20-001">
-        <div class="card-inner">
-          <div class="gallery">
-            <!-- استبدل الروابط بروابطك الفعلية (يمكن أن تكون الصورة الأولى فيديو رئيسي) -->
-            <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823746/IMG-20250924-WA0081_ozaaym.jpg" alt="استوديو مفروش" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823732/IMG-20250924-WA0082_mywekf.jpg" alt="صورة استوديو" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823731/IMG-20250924-WA0079_ok3e8g.jpg" alt="صورة استوديو" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823745/IMG-20250924-WA0083_yawswr.jpg" alt="صورة استوديو" />
-          </div>
-          <div class="details">
-            <div class="code">الكود: GHAZ-2025-10-20-001</div>
-            <div class="h2">استوديو مفروش بالكامل – النعيمية</div>
-            <div class="meta">
-              قريب من سفير مول • شامل الفواتير • فرش جديد
-            </div>
-            <div class="badges">
-              <span class="badge">إنترنت وتكييف مشمول</span>
-              <span class="badge">موقف سيارة</span>
-              <span class="badge">بناية مزودة بمصعد</span>
-            </div>
-            <ul class="list">
-              <li>الإيجار الشهري: <span class="price">2,800 درهم</span></li>
-              <li>تأمين مسترد: 500 درهم</li>
-              <li>يشمل الكهرباء والماء والإنترنت</li>
-            </ul>
-            <div class="btns">
-              <a class="btn" target="_blank" rel="noopener" id="wa-1">
-                <svg class="icon-wa">
-                  <use href="#icon-whatsapp"></use>
-                </svg>
-                <span>واتساب</span>
-              </a>
-              <button class="btn secondary" onclick="copyCode(this)">نسخ الكود</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- العرض 2 -->
-      <section class="card" data-code="GHAZ-2025-10-20-002">
-        <div class="card-inner">
-          <div class="gallery">
-            <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823755/IMG-20250921-WA0059_aprjhi.jpg"
-              alt="غرفة وصالة مطلة على البحر" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823745/IMG-20250921-WA0056_i5eiyv.jpg" alt="صورة الشقة" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823776/IMG-20250921-WA0063_lxc5w7.jpg" alt="صورة الشقة" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823760/IMG-20250921-WA0062_v9poxt.jpg" alt="صورة الشقة" />
-          </div>
-          <div class="details">
-            <div class="code">الكود: GHAZ-2025-10-20-002</div>
-            <div class="h2">غرفة وصالة – كورنيش عجمان</div>
-            <div class="meta">
-              برج الاتحاد • إطلالة بحرية كاملة • ثاني ساكن
-            </div>
-            <div class="badges">
-              <span class="badge">إطلالة بحرية</span>
-              <span class="badge">مساحة واسعة</span>
-              <span class="badge">شامل الفواتير</span>
-            </div>
-            <ul class="list">
-              <li>الإيجار الشهري: <span class="price">3,700 درهم</span></li>
-              <li>تأمين مسترد: 500 درهم</li>
-              <li>العمولة: 1,000 درهم</li>
-            </ul>
-            <div class="btns">
-              <a class="btn" target="_blank" rel="noopener" id="wa-2">
-                <svg class="icon-wa">
-                  <use href="#icon-whatsapp"></use>
-                </svg>
-                <span>واتساب</span>
-              </a>
-              <button class="btn secondary" onclick="copyCode(this)">نسخ الكود</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- العرض 3 -->
-      <section class="card" data-code="GHAZ-2025-10-20-003">
-        <div class="card-inner">
-          <div class="gallery">
-            <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759824612/IMG-20250920-WA0048_kgl6sg.jpg"
-              alt="غرفة وصالة الراشدية" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759824631/IMG-20250920-WA0044_ezngpn.jpg" alt="صورة الشقة" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759825432/IMG-20250920-WA0046_d2h3ch.jpg" alt="صورة الشقة" />
-            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759825473/IMG-20250920-WA0045_xufarj.jpg" alt="صورة الشقة" />
-          </div>
-          <div class="details">
-            <div class="code">الكود: GHAZ-2025-10-20-003</div>
-            <div class="h2">غرفة وصالة – الراشدية</div>
-            <div class="meta">
-              خلف جراند مول • فرش جديد • شامل جميع الفواتير
-            </div>
-            <div class="badges">
-              <span class="badge">جيم ومسبح في البناية</span>
-              <span class="badge">موقف سيارات</span>
-              <span class="badge">مناسب للعائلات</span>
-            </div>
-            <ul class="list">
-              <li>الإيجار الشهري: <span class="price">3,100 درهم</span></li>
-              <li>تأمين مسترد: 500 درهم</li>
-              <li>جاهزة للسكن فورًا</li>
-            </ul>
-            <div class="btns">
-              <a class="btn" target="_blank" rel="noopener" id="wa-3">
-                <svg class="icon-wa">
-                  <use href="#icon-whatsapp"></use>
-                </svg>
-                <span>واتساب</span>
-              </a>
-              <button class="btn secondary" onclick="copyCode(this)">نسخ الكود</button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div id="offers-container">
+        <p>جاري تحميل العروض...</p>
+      </div>
     </main>
 
     <div class="divider"></div>
@@ -508,8 +402,11 @@
       © <span id="year"></span> شقق غازي الفاخرة — بإدارة محمد غازي · جميع الأسعار شهرية ما لم يُذكر غير ذلك.
     </footer>
   </div>
+
   <script>
-    // تعبئة التاريخ الحالي في شريط العنوان
+    // ==============================
+    // 1️⃣ تعبئة تاريخ اليوم في الشريط العلوي
+    // ==============================
     const today = new Date();
     document.getElementById("today").textContent =
       "التاريخ: " +
@@ -520,21 +417,9 @@
       });
     document.getElementById("year").textContent = today.getFullYear();
 
-    // إنشاء روابط واتساب برسالة تلقائية تحتوي على الكود والعنوان والسعر
-    const phone = "971567242480";
-    [...document.querySelectorAll(".card")].forEach((card, idx) => {
-      const code = card.getAttribute("data-code");
-      const title = card.querySelector(".h2").textContent.trim();
-      const price = card.querySelector(".price").textContent.trim();
-      const msg = encodeURIComponent(
-        `مرحبًا، أرغب في معرفة تفاصيل هذا العرض:\n${title}\nالسعر: ${price}\nالكود: ${code}\nيرجى إرسال الموقع والتفاصيل.`
-      );
-      const link = `https://wa.me/${phone}?text=${msg}`;
-      const a = card.querySelector(`#wa-${idx + 1}`);
-      if (a) a.setAttribute("href", link);
-    });
-
-    // إعداد الثيم
+    // ==============================
+    // 2️⃣ إدارة المظهر (فاتح / داكن / تلقائي)
+    // ==============================
     const root = document.documentElement;
     const themeToggle = document.getElementById("themeToggle");
     const themeMenu = document.getElementById("themeMenu");
@@ -596,7 +481,9 @@
       });
     });
 
-    // وظيفة النسخ
+    // ==============================
+    // 3️⃣ وظيفة نسخ الكود
+    // ==============================
     function copyCode(btn) {
       const card = btn.closest(".card");
       const code = card.getAttribute("data-code");
@@ -605,7 +492,84 @@
         setTimeout(() => (btn.textContent = "نسخ الكود"), 1200);
       });
     }
+
+    // ==============================
+    // 4️⃣ تحميل العروض ديناميكيًا من دالة Netlify
+    // ==============================
+    async function loadOffers() {
+      const container = document.getElementById("offers-container");
+      try {
+        const response = await fetch("https://gpfa.netlify.app/.netlify/functions/getOffers");
+        const offers = await response.json();
+
+        container.innerHTML = "";
+
+        offers.forEach((offer, idx) => {
+          const imagesHTML = offer.images
+            .map((img, i) => `<img ${i === 0 ? 'class="hero"' : ''} src="${img}" alt="${offer.title.ar}">`)
+            .join("");
+
+          const badgesHTML = offer.features.ar
+            .map(f => `<span class="badge">${f}</span>`)
+            .join("");
+
+          const cardHTML = `
+                <section class="card" data-code="${offer.code}">
+                    <div class="card-inner">
+                        <div class="gallery">${imagesHTML}</div>
+                        <div class="details">
+                            <div class="code">الكود: ${offer.code}</div>
+                            <div class="h2">${offer.title.ar}</div>
+                            <div class="meta">${offer.description.ar}</div>
+                            <div class="badges">${badgesHTML}</div>
+                            <ul class="list">
+                                <li>الإيجار الشهري: <span class="price">${offer.price} درهم</span></li>
+                                <li>التأمين المسترد: ${offer.deposit} درهم</li>
+                                <li>العمولة: ${offer.commission} درهم</li>
+                            </ul>
+                            <div class="btns">
+                                <a class="btn" target="_blank" rel="noopener" id="wa-${idx + 1}">
+                                    <svg class="icon-wa"><use href="#icon-whatsapp"></use></svg>
+                                    <span>واتساب</span>
+                                </a>
+                                <button class="btn secondary" onclick="copyCode(this)">
+                                    نسخ الكود
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+
+          container.innerHTML += cardHTML;
+        });
+
+        // ==============================
+        // 5️⃣ إنشاء روابط واتساب بعد تحميل الكروت
+        // ==============================
+        const phone = "971567242480";
+        [...document.querySelectorAll(".card")].forEach((card, idx) => {
+          const code = card.getAttribute("data-code");
+          const title = card.querySelector(".h2").textContent.trim();
+          const price = card.querySelector(".price").textContent.trim();
+          const msg = encodeURIComponent(
+            `مرحبًا، أرغب في معرفة تفاصيل هذا العرض:\n${title}\nالسعر: ${price}\nالكود: ${code}\nيرجى إرسال الموقع والتفاصيل.`
+          );
+          const link = `https://wa.me/${phone}?text=${msg}`;
+          const a = card.querySelector(`#wa-${idx + 1}`);
+          if (a) a.setAttribute("href", link);
+        });
+
+      } catch (error) {
+        console.error("❌ فشل تحميل العروض:", error);
+        container.innerHTML = "<p style='color:red;'>حدث خطأ أثناء تحميل العروض. يُرجى المحاولة لاحقًا.</p>";
+      }
+    }
+
+    // تشغيل التحميل عند فتح الصفحة
+    loadOffers();
   </script>
+
 </body>
 
 </html>

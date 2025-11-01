@@ -96,6 +96,16 @@
             gap: 18px;
         }
 
+        #offers-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px;
+            width: 100%;
+            grid-column: 1 / -1;
+        }
+
+
+
         .card {
             grid-column: span 12;
             background: var(--card);
@@ -109,6 +119,7 @@
         .card-inner {
             display: grid;
             grid-template-columns: 1fr;
+            width: 100%;
         }
 
         @media (min-width: 860px) {
@@ -374,7 +385,7 @@
         2) Update CODE, title, location, bullets, price & deposit.
         3) Replace image sources with your own (Cloudinary/Drive direct links). Hero goes first.
         4) The WhatsApp button message auto-fills with the CODE.
-      -->
+        -->
             <svg style="display:none;">
                 <symbol id="icon-whatsapp" viewBox="0 0 16 16">
                     <path
@@ -382,128 +393,10 @@
                 </symbol>
             </svg>
 
-            <!-- LISTING 1 -->
-            <section class="card" data-code="GHAZ-2025-10-20-001">
-                <div class="card-inner">
-                    <div class="gallery">
-                        <!-- Replace with your real links. The first item can be video as hero if needed. -->
-                        <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823746/IMG-20250924-WA0081_ozaaym.jpg" alt="Studio hero" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823732/IMG-20250924-WA0082_mywekf.jpg" alt="Studio photo" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823731/IMG-20250924-WA0079_ok3e8g.jpg" alt="Studio photo" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823745/IMG-20250924-WA0083_yawswr.jpg" alt="Studio photo" />
-                    </div>
-                    <div class="details">
-                        <div class="code">Code: GHAZ-2025-10-20-001</div>
-                        <div class="h2">Studio – Al Nuaimiya</div>
-                        <div class="meta">
-                            Near Safeer Mall • Bills Included • New Furniture
-                        </div>
-                        <div class="badges">
-                            <span class="badge">AC & Internet Included</span>
-                            <span class="badge">Parking</span>
-                            <span class="badge">Elevator Building</span>
-                        </div>
-                        <ul class="list">
-                            <li>Monthly: <span class="price">AED 2,800</span></li>
-                            <li>Refundable Deposit: AED 500</li>
-                            <li>Extras: Electricity, water, internet included</li>
-                        </ul>
-                        <div class="btns">
-                            <a class="btn" target="_blank" rel="noopener" id="wa-1">
-                                <svg class="icon-wa">
-                                    <use href="#icon-whatsapp"></use>
-                                </svg>
-                                <span>WhatsApp</span>
-                            </a>
-                            <button class="btn secondary" onclick="copyCode(this)">
-                                Copy Code
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div id="offers-container">
+                <p>Loading offers...</p>
+            </div>
 
-            <!-- LISTING 2 -->
-            <section class="card" data-code="GHAZ-2025-10-20-002">
-                <div class="card-inner">
-                    <div class="gallery">
-                        <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823755/IMG-20250921-WA0059_aprjhi.jpg"
-                            alt="1BR sea view" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823745/IMG-20250921-WA0056_i5eiyv.jpg" alt="1BR" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823776/IMG-20250921-WA0063_lxc5w7.jpg" alt="1BR" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823760/IMG-20250921-WA0062_v9poxt.jpg" alt="1BR" />
-                    </div>
-                    <div class="details">
-                        <div class="code">Code: GHAZ-2025-10-20-002</div>
-                        <div class="h2">1 Bedroom + Hall – Corniche Ajman</div>
-                        <div class="meta">
-                            Union Tower • Full Sea View • Second Occupant
-                        </div>
-                        <div class="badges">
-                            <span class="badge">Sea View</span>
-                            <span class="badge">Large Space</span>
-                            <span class="badge">Bills Included</span>
-                        </div>
-                        <ul class="list">
-                            <li>Monthly: <span class="price">AED 3,700</span></li>
-                            <li>Refundable Deposit: AED 500</li>
-                            <li>Commission: AED 1,000</li>
-                        </ul>
-                        <div class="btns">
-                            <a class="btn" target="_blank" rel="noopener" id="wa-2">
-                                <svg class="icon-wa">
-                                    <use href="#icon-whatsapp"></use>
-                                </svg>
-                                <span>WhatsApp</span>
-                            </a>
-                            <button class="btn secondary" onclick="copyCode(this)">
-                                Copy Code
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- LISTING 3 -->
-            <section class="card" data-code="GHAZ-2025-10-20-003">
-                <div class="card-inner">
-                    <div class="gallery">
-                        <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759824612/IMG-20250920-WA0048_kgl6sg.jpg"
-                            alt="1BR Rashidiya" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759824631/IMG-20250920-WA0044_ezngpn.jpg" alt="Rashidiya" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759825432/IMG-20250920-WA0046_d2h3ch.jpg" alt="Rashidiya" />
-                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759825473/IMG-20250920-WA0045_xufarj.jpg" alt="Rashidiya" />
-                    </div>
-                    <div class="details">
-                        <div class="code">Code: GHAZ-2025-10-20-003</div>
-                        <div class="h2">1 Bedroom + Hall – Al Rashidiya</div>
-                        <div class="meta">
-                            Behind Grand Mall • New Furniture • All Bills
-                        </div>
-                        <div class="badges">
-                            <span class="badge">Gym & Pool in Building</span>
-                            <span class="badge">Parking</span>
-                            <span class="badge">Family Building</span>
-                        </div>
-                        <ul class="list">
-                            <li>Monthly: <span class="price">AED 3,100</span></li>
-                            <li>Refundable Deposit: AED 500</li>
-                            <li>Move-in: Ready today</li>
-                        </ul>
-                        <div class="btns">
-                            <a class="btn" target="_blank" rel="noopener" id="wa-3">
-                                <svg class="icon-wa">
-                                    <use href="#icon-whatsapp"></use>
-                                </svg>
-                                <span>WhatsApp</span>
-                            </a>
-                            <button class="btn secondary" onclick="copyCode(this)">
-                                Copy Code
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
 
         <div class="divider"></div>
@@ -515,7 +408,9 @@
     </div>
 
     <script>
-        // Fill today's date pill
+        // ==============================
+        // 1️⃣ Fill today's date pill
+        // ==============================
         const today = new Date();
         document.getElementById("today").textContent =
             "Date: " +
@@ -526,20 +421,9 @@
             });
         document.getElementById("year").textContent = today.getFullYear();
 
-        // Build WhatsApp links with prefilled message including the listing code
-        const phone = "971567242480";
-        [...document.querySelectorAll(".card")].forEach((card, idx) => {
-            const code = card.getAttribute("data-code");
-            const title = card.querySelector(".h2").textContent.trim();
-            const price = card.querySelector(".price").textContent.trim();
-            const msg = encodeURIComponent(
-                `Hello, I'm interested in this listing:\n${title}\nPrice: ${price}\nCode: ${code}\nPlease share availability and location pin.`
-            );
-            const link = `https://wa.me/${phone}?text=${msg}`;
-            const a = card.querySelector(`#wa-${idx + 1}`);
-            if (a) a.setAttribute("href", link);
-        });
-
+        // ==============================
+        // 2️⃣ Theme Management (Light / Dark / System)
+        // ==============================
         const root = document.documentElement;
         const themeToggle = document.getElementById("themeToggle");
         const themeMenu = document.getElementById("themeMenu");
@@ -603,7 +487,9 @@
             });
         });
 
-        // Copy code helper
+        // ==============================
+        // 3️⃣ Copy Code Helper
+        // ==============================
         function copyCode(btn) {
             const card = btn.closest(".card");
             const code = card.getAttribute("data-code");
@@ -612,7 +498,84 @@
                 setTimeout(() => (btn.textContent = "Copy Code"), 1200);
             });
         }
+
+        // ==============================
+        // 4️⃣ Load Offers Dynamically from Netlify Function
+        // ==============================
+        async function loadOffers() {
+            const container = document.getElementById("offers-container");
+            try {
+                const response = await fetch("https://gpfa.netlify.app/.netlify/functions/getOffers");
+                const offers = await response.json();
+
+                container.innerHTML = "";
+
+                offers.forEach((offer, idx) => {
+                    const imagesHTML = offer.images
+                        .map((img, i) => `<img ${i === 0 ? 'class="hero"' : ''} src="${img}" alt="${offer.title.en} photo" />`)
+                        .join("");
+
+                    const badgesHTML = offer.features.en
+                        .map(f => `<span class="badge">${f}</span>`)
+                        .join("");
+
+                    const cardHTML = `
+                    <section class="card" data-code="${offer.code}">
+                        <div class="card-inner">
+                            <div class="gallery">${imagesHTML}</div>
+                            <div class="details">
+                                <div class="code">Code: ${offer.code}</div>
+                                <div class="h2">${offer.title.en}</div>
+                                <div class="meta">${offer.description.en}</div>
+                                <div class="badges">${badgesHTML}</div>
+                                <ul class="list">
+                                    <li>Monthly: <span class="price">AED ${offer.price}</span></li>
+                                    <li>Refundable Deposit: AED ${offer.deposit}</li>
+                                    <li>Commission: AED ${offer.commission}</li>
+                                </ul>
+                                <div class="btns">
+                                    <a class="btn" target="_blank" rel="noopener" id="wa-${idx + 1}">
+                                        <svg class="icon-wa"><use href="#icon-whatsapp"></use></svg>
+                                        <span>WhatsApp</span>
+                                    </a>
+                                    <button class="btn secondary" onclick="copyCode(this)">
+                                        Copy Code
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                `;
+
+                    container.innerHTML += cardHTML;
+                });
+
+                // ==============================
+                // 5️⃣ Build WhatsApp Links after Cards are Loaded
+                // ==============================
+                const phone = "971567242480";
+                [...document.querySelectorAll(".card")].forEach((card, idx) => {
+                    const code = card.getAttribute("data-code");
+                    const title = card.querySelector(".h2").textContent.trim();
+                    const price = card.querySelector(".price").textContent.trim();
+                    const msg = encodeURIComponent(
+                        `Hello, I'm interested in this listing:\n${title}\nPrice: ${price}\nCode: ${code}\nPlease share availability and location pin.`
+                    );
+                    const link = `https://wa.me/${phone}?text=${msg}`;
+                    const a = card.querySelector(`#wa-${idx + 1}`);
+                    if (a) a.setAttribute("href", link);
+                });
+
+            } catch (error) {
+                console.error("❌ Failed to load offers:", error);
+                container.innerHTML = "<p style='color:red;'>Failed to load offers. Please try again later.</p>";
+            }
+        }
+
+        // Run after page load
+        loadOffers();
     </script>
+
 </body>
 
 </html>
