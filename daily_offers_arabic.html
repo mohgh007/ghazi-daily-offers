@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>شقق غازي الفاخرة – العروض اليومية</title>
+  <meta name="description"
+    content="عروض يومية للشقق المفروشة في عجمان – صفحة واحدة بسيطة لسهولة المشاركة مع العملاء." />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #131a22;
+      --muted: #a7b1bd;
+      --text: #eef3f8;
+      --brand: #22c55e;
+      --accent: #60a5fa;
+      --danger: #f97316;
+      --list: #dce7f3;
+      --badge-bg: #1b2532;
+      --badge-text: #cfe3ff;
+      --pill-bg: #18212b;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 500 16px/1.6 "Cairo", "Tajawal", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Header */
+    header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
+      text-align: right;
+    }
+
+    .title {
+      font-weight: 800;
+      font-size: clamp(22px, 3vw, 34px);
+    }
+
+    .sub {
+      color: var(--muted);
+    }
+
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .pill {
+      background: var(--pill-bg);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #223140;
+      font-size: 13px;
+      color: var(--muted);
+      transition: all 0.3s ease;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      grid-column: span 12;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid #1e2835;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      transition: background 0.3s ease, border 0.3s ease;
+    }
+
+    .card-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 860px) {
+      .card-inner {
+        grid-template-columns: 50% 50%;
+      }
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      padding: 12px;
+      background: #0e141b;
+      transition: background 0.3s ease;
+    }
+
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #223140;
+      background: #0b0f14;
+      transition: all 0.3s ease;
+    }
+
+    .gallery .hero {
+      grid-column: span 3;
+      height: 220px;
+    }
+
+    /* Details */
+    .details {
+      padding: 14px 16px 18px;
+      text-align: right;
+    }
+
+    .code {
+      font: 700 12px/1 monospace;
+      color: var(--accent);
+    }
+
+    .h2 {
+      margin: 6px 0 4px;
+      font-weight: 750;
+      font-size: clamp(18px, 2.2vw, 22px);
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+
+    .badge {
+      background: var(--badge-bg);
+      border: 1px solid #243244;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--badge-text);
+      transition: all 0.3s ease;
+    }
+
+    .list {
+      margin: 10px 0 14px;
+      padding-right: 18px;
+      color: var(--list);
+      transition: color 0.3s ease;
+    }
+
+    .price {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--brand);
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      color: #07110a;
+      background: var(--brand);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 750;
+      transition: transform 0.06s ease, filter 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn.secondary {
+      background: #0f1720;
+      border: 1px solid #1f2a37;
+      color: #d9e3ef;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    footer {
+      margin: 34px 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .divider {
+      height: 1px;
+      background: #1e2835;
+      margin: 22px 0;
+      opacity: 0.8;
+    }
+
+    /* Theme Toggle */
+    .theme-container {
+      position: fixed;
+      top: 18px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #334155;
+      background: var(--card);
+      color: var(--text);
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 50px;
+      background: var(--card);
+      border: 1px solid #334155;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown button {
+      background: none;
+      border: none;
+      color: var(--text);
+      padding: 8px 14px;
+      text-align: right;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown button:hover {
+      background: var(--pill-bg);
+    }
+
+    .icon-wa {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+      vertical-align: middle;
+      margin-left: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover .icon-wa {
+      transform: scale(1.15);
+    }
+
+    /* ====== Scrollbar Styling (for Chrome, Edge, Safari) ====== */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #2e343b 0%, #3d434b 100%);
+      border-radius: 20px;
+      border: 2px solid #0b0f14;
+      transition: all 0.3s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+      border: 2px solid #0b0f14;
+    }
+
+    /* ====== Scrollbar Styling for Firefox ====== */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #3a3f46 #0b0f14;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="theme-container">
+    <button class="theme-toggle" id="themeToggle">⚙️</button>
+    <div class="dropdown" id="themeMenu">
+      <button data-theme="light">☀️ الوضع الفاتح</button>
+      <button data-theme="dark">🌙 الوضع الداكن</button>
+      <button data-theme="system">⚙️ تلقائي حسب النظام</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="title">شقق غازي الفاخرة — العروض اليومية</div>
+      <div class="sub">
+        استعرض أحدث عروض الشقق المفروشة في عجمان. صفحة واحدة سهلة التحديث والمشاركة مع العملاء.
+      </div>
+      <div class="bar">
+        <span class="pill" id="today"></span>
+        <span class="pill">تحديث يدوي • الإصدار vm1</span>
+        <span class="pill">تواصل عبر واتساب:
+          <a href="https://wa.me/971567242480">+971 56 724 2480</a></span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!--
+        طريقة إضافة عرض جديد (يدويًا):
+        1) انسخ بلوك <section class="card"> بالكامل.
+        2) غيّر الكود، العنوان، الموقع، التفاصيل، السعر، والتأمين.
+        3) استبدل روابط الصور بروابطك الخاصة (Cloudinary أو Drive مباشر).
+        4) زر الواتساب يولّد الرسالة تلقائيًا باستخدام الكود.
+      -->
+      <svg style="display:none;">
+        <symbol id="icon-whatsapp" viewBox="0 0 16 16">
+          <path
+            d="M13.601 2.326A7.854 7.854 0 0 0 8.002 0C3.584 0 .003 3.579.003 7.993c0 1.406.366 2.777 1.058 3.99L0 16l4.155-1.092a7.964 7.964 0 0 0 3.847.982h.003c4.416 0 8.002-3.58 8.002-7.993a7.91 7.91 0 0 0-2.406-5.571zM8.002 14.65a6.548 6.548 0 0 1-3.33-.912l-.238-.141-2.468.649.658-2.406-.156-.248a6.493 6.493 0 0 1-.998-3.496c0-3.588 2.93-6.514 6.532-6.514a6.49 6.49 0 0 1 4.64 1.926 6.472 6.472 0 0 1 1.893 4.59c0 3.588-2.93 6.514-6.532 6.514zm3.59-4.903c-.195-.097-1.15-.568-1.329-.633-.179-.065-.31-.097-.44.097s-.504.633-.617.761-.228.145-.423.048c-.195-.097-.825-.304-1.572-.97-.58-.52-.97-1.16-1.085-1.355-.114-.195-.012-.3.085-.397.087-.087.195-.228.292-.342.097-.114.13-.195.195-.325.065-.13.032-.243-.016-.34-.048-.097-.44-1.06-.603-1.45-.159-.382-.322-.33-.44-.335-.114-.006-.244-.007-.374-.007s-.34.048-.52.243c-.179.195-.682.665-.682 1.623s.699 1.885.796 2.014c.097.13 1.377 2.1 3.34 2.942.467.202.831.322 1.114.412.467.149.892.128 1.228.078.374-.056 1.15-.469 1.312-.922.162-.454.162-.845.113-.922-.048-.078-.179-.13-.374-.228z" />
+        </symbol>
+      </svg>
+
+      <!-- العرض 1 -->
+      <section class="card" data-code="GHAZ-2025-10-20-001">
+        <div class="card-inner">
+          <div class="gallery">
+            <!-- استبدل الروابط بروابطك الفعلية (يمكن أن تكون الصورة الأولى فيديو رئيسي) -->
+            <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823746/IMG-20250924-WA0081_ozaaym.jpg" alt="استوديو مفروش" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823732/IMG-20250924-WA0082_mywekf.jpg" alt="صورة استوديو" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823731/IMG-20250924-WA0079_ok3e8g.jpg" alt="صورة استوديو" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823745/IMG-20250924-WA0083_yawswr.jpg" alt="صورة استوديو" />
+          </div>
+          <div class="details">
+            <div class="code">الكود: GHAZ-2025-10-20-001</div>
+            <div class="h2">استوديو مفروش بالكامل – النعيمية</div>
+            <div class="meta">
+              قريب من سفير مول • شامل الفواتير • فرش جديد
+            </div>
+            <div class="badges">
+              <span class="badge">إنترنت وتكييف مشمول</span>
+              <span class="badge">موقف سيارة</span>
+              <span class="badge">بناية مزودة بمصعد</span>
+            </div>
+            <ul class="list">
+              <li>الإيجار الشهري: <span class="price">2,800 درهم</span></li>
+              <li>تأمين مسترد: 500 درهم</li>
+              <li>يشمل الكهرباء والماء والإنترنت</li>
+            </ul>
+            <div class="btns">
+              <a class="btn" target="_blank" rel="noopener" id="wa-1">
+                <svg class="icon-wa">
+                  <use href="#icon-whatsapp"></use>
+                </svg>
+                <span>واتساب</span>
+              </a>
+              <button class="btn secondary" onclick="copyCode(this)">نسخ الكود</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- العرض 2 -->
+      <section class="card" data-code="GHAZ-2025-10-20-002">
+        <div class="card-inner">
+          <div class="gallery">
+            <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823755/IMG-20250921-WA0059_aprjhi.jpg"
+              alt="غرفة وصالة مطلة على البحر" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823745/IMG-20250921-WA0056_i5eiyv.jpg" alt="صورة الشقة" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823776/IMG-20250921-WA0063_lxc5w7.jpg" alt="صورة الشقة" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823760/IMG-20250921-WA0062_v9poxt.jpg" alt="صورة الشقة" />
+          </div>
+          <div class="details">
+            <div class="code">الكود: GHAZ-2025-10-20-002</div>
+            <div class="h2">غرفة وصالة – كورنيش عجمان</div>
+            <div class="meta">
+              برج الاتحاد • إطلالة بحرية كاملة • ثاني ساكن
+            </div>
+            <div class="badges">
+              <span class="badge">إطلالة بحرية</span>
+              <span class="badge">مساحة واسعة</span>
+              <span class="badge">شامل الفواتير</span>
+            </div>
+            <ul class="list">
+              <li>الإيجار الشهري: <span class="price">3,700 درهم</span></li>
+              <li>تأمين مسترد: 500 درهم</li>
+              <li>العمولة: 1,000 درهم</li>
+            </ul>
+            <div class="btns">
+              <a class="btn" target="_blank" rel="noopener" id="wa-2">
+                <svg class="icon-wa">
+                  <use href="#icon-whatsapp"></use>
+                </svg>
+                <span>واتساب</span>
+              </a>
+              <button class="btn secondary" onclick="copyCode(this)">نسخ الكود</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- العرض 3 -->
+      <section class="card" data-code="GHAZ-2025-10-20-003">
+        <div class="card-inner">
+          <div class="gallery">
+            <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759824612/IMG-20250920-WA0048_kgl6sg.jpg"
+              alt="غرفة وصالة الراشدية" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759824631/IMG-20250920-WA0044_ezngpn.jpg" alt="صورة الشقة" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759825432/IMG-20250920-WA0046_d2h3ch.jpg" alt="صورة الشقة" />
+            <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759825473/IMG-20250920-WA0045_xufarj.jpg" alt="صورة الشقة" />
+          </div>
+          <div class="details">
+            <div class="code">الكود: GHAZ-2025-10-20-003</div>
+            <div class="h2">غرفة وصالة – الراشدية</div>
+            <div class="meta">
+              خلف جراند مول • فرش جديد • شامل جميع الفواتير
+            </div>
+            <div class="badges">
+              <span class="badge">جيم ومسبح في البناية</span>
+              <span class="badge">موقف سيارات</span>
+              <span class="badge">مناسب للعائلات</span>
+            </div>
+            <ul class="list">
+              <li>الإيجار الشهري: <span class="price">3,100 درهم</span></li>
+              <li>تأمين مسترد: 500 درهم</li>
+              <li>جاهزة للسكن فورًا</li>
+            </ul>
+            <div class="btns">
+              <a class="btn" target="_blank" rel="noopener" id="wa-3">
+                <svg class="icon-wa">
+                  <use href="#icon-whatsapp"></use>
+                </svg>
+                <span>واتساب</span>
+              </a>
+              <button class="btn secondary" onclick="copyCode(this)">نسخ الكود</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="divider"></div>
+
+    <footer>
+      © <span id="year"></span> شقق غازي الفاخرة — بإدارة محمد غازي · جميع الأسعار شهرية ما لم يُذكر غير ذلك.
+    </footer>
+  </div>
+  <script>
+    // تعبئة التاريخ الحالي في شريط العنوان
+    const today = new Date();
+    document.getElementById("today").textContent =
+      "التاريخ: " +
+      today.toLocaleDateString("ar-EG", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
+    document.getElementById("year").textContent = today.getFullYear();
+
+    // إنشاء روابط واتساب برسالة تلقائية تحتوي على الكود والعنوان والسعر
+    const phone = "971567242480";
+    [...document.querySelectorAll(".card")].forEach((card, idx) => {
+      const code = card.getAttribute("data-code");
+      const title = card.querySelector(".h2").textContent.trim();
+      const price = card.querySelector(".price").textContent.trim();
+      const msg = encodeURIComponent(
+        `مرحبًا، أرغب في معرفة تفاصيل هذا العرض:\n${title}\nالسعر: ${price}\nالكود: ${code}\nيرجى إرسال الموقع والتفاصيل.`
+      );
+      const link = `https://wa.me/${phone}?text=${msg}`;
+      const a = card.querySelector(`#wa-${idx + 1}`);
+      if (a) a.setAttribute("href", link);
+    });
+
+    // إعداد الثيم
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeMenu = document.getElementById("themeMenu");
+
+    const lightTheme = {
+      "--bg": "#e2e8f0",
+      "--card": "#ffffff",
+      "--muted": "#1e293b",
+      "--text": "#0f172a",
+      "--brand": "#15803d",
+      "--accent": "#047857",
+      "--danger": "#b91c1c",
+      "--list": "#334155",
+      "--badge-bg": "#f1f5f9",
+      "--badge-text": "#0f172a",
+      "--pill-bg": "#cbd5e1",
+    };
+    const darkTheme = {
+      "--bg": "#0b0f14",
+      "--card": "#131a22",
+      "--muted": "#a7b1bd",
+      "--text": "#eef3f8",
+      "--brand": "#22c55e",
+      "--accent": "#60a5fa",
+      "--danger": "#f97316",
+      "--list": "#dce7f3",
+      "--badge-bg": "#1b2532",
+      "--badge-text": "#cfe3ff",
+      "--pill-bg": "#18212b",
+    };
+
+    function setTheme(vars) {
+      for (const key in vars) root.style.setProperty(key, vars[key]);
+    }
+    function applyTheme(mode) {
+      if (mode === "system") {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        setTheme(prefersDark ? darkTheme : lightTheme);
+        window.matchMedia("(prefers-color-scheme: dark)").onchange = (e) =>
+          setTheme(e.matches ? darkTheme : lightTheme);
+      } else {
+        setTheme(mode === "dark" ? darkTheme : lightTheme);
+      }
+    }
+
+    let current = localStorage.getItem("theme") || "system";
+    applyTheme(current);
+
+    themeToggle.addEventListener("click", () => {
+      themeMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll("#themeMenu button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const selected = btn.getAttribute("data-theme");
+        localStorage.setItem("theme", selected);
+        applyTheme(selected);
+        themeMenu.classList.remove("active");
+      });
+    });
+
+    // وظيفة النسخ
+    function copyCode(btn) {
+      const card = btn.closest(".card");
+      const code = card.getAttribute("data-code");
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = "تم النسخ ✓";
+        setTimeout(() => (btn.textContent = "نسخ الكود"), 1200);
+      });
+    }
+  </script>
+</body>
+
+</html>

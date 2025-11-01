@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ghazi Premium Apartments – Daily Offers</title>
+    <meta name="description" content="Daily furnished apartment offers in Ajman – simple one-link page for clients." />
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --card: #131a22;
+            --muted: #a7b1bd;
+            --text: #eef3f8;
+            --brand: #22c55e;
+            --accent: #60a5fa;
+            --danger: #f97316;
+            --list: #dce7f3;
+            --badge-bg: #1b2532;
+            --badge-text: #cfe3ff;
+            --pill-bg: #18212b;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 500 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+                Arial;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Header */
+        header {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .title {
+            font-weight: 800;
+            font-size: clamp(22px, 3vw, 34px);
+        }
+
+        .sub {
+            color: var(--muted);
+        }
+
+        .bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .pill {
+            background: var(--pill-bg);
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid #223140;
+            font-size: 13px;
+            color: var(--muted);
+            transition: all 0.3s ease;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            grid-column: span 12;
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid #1e2835;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            transition: background 0.3s ease, border 0.3s ease;
+        }
+
+        .card-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 860px) {
+            .card-inner {
+                grid-template-columns: 50% 50%;
+            }
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            padding: 12px;
+            background: #0e141b;
+            transition: background 0.3s ease;
+        }
+
+        .gallery img,
+        .gallery video {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #223140;
+            background: #0b0f14;
+            transition: all 0.3s ease;
+        }
+
+        .gallery .hero {
+            grid-column: span 3;
+            height: 220px;
+        }
+
+        /* Details */
+        .details {
+            padding: 14px 16px 18px;
+        }
+
+        .code {
+            font: 700 12px/1 monospace;
+            color: var(--accent);
+        }
+
+        .h2 {
+            margin: 6px 0 4px;
+            font-weight: 750;
+            font-size: clamp(18px, 2.2vw, 22px);
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0 14px;
+        }
+
+        .badge {
+            background: var(--badge-bg);
+            border: 1px solid #243244;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: var(--badge-text);
+            transition: all 0.3s ease;
+        }
+
+        .list {
+            margin: 10px 0 14px;
+            padding-left: 18px;
+            color: var(--list);
+            transition: color 0.3s ease;
+        }
+
+        .price {
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--brand);
+        }
+
+        .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            border: 0;
+            cursor: pointer;
+            color: #07110a;
+            background: var(--brand);
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-weight: 750;
+            transition: transform 0.06s ease, filter 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn.secondary {
+            background: #0f1720;
+            border: 1px solid #1f2a37;
+            color: #d9e3ef;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        footer {
+            margin: 34px 0 10px;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .divider {
+            height: 1px;
+            background: #1e2835;
+            margin: 22px 0;
+            opacity: 0.8;
+        }
+
+        /* Theme Toggle */
+        .theme-container {
+            position: fixed;
+            top: 18px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #334155;
+            background: var(--card);
+            color: var(--text);
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 50px;
+            background: var(--card);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown button {
+            background: none;
+            border: none;
+            color: var(--text);
+            padding: 8px 14px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background 0.2s ease;
+        }
+
+        .dropdown button:hover {
+            background: var(--pill-bg);
+        }
+
+        .icon-wa {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+            vertical-align: middle;
+            margin-right: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover .icon-wa {
+            transform: scale(1.15);
+        }
+
+        /* ====== Scrollbar Styling (for Chrome, Edge, Safari) ====== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #2e343b 0%, #3d434b 100%);
+            border-radius: 20px;
+            border: 2px solid #0b0f14;
+            transition: all 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+            border: 2px solid #0b0f14;
+        }
+
+        /* ====== Scrollbar Styling for Firefox ====== */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3a3f46 #0b0f14;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="theme-container">
+        <button class="theme-toggle" id="themeToggle">⚙️</button>
+        <div class="dropdown" id="themeMenu">
+            <button data-theme="light">☀️ Light</button>
+            <button data-theme="dark">🌙 Dark</button>
+            <button data-theme="system">⚙️ System</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="title">Ghazi Premium Apartments — Daily Offers</div>
+            <div class="sub">
+                Browse today's furnished-apartment listings in Ajman. One link for
+                clients; easy to update manually.
+            </div>
+            <div class="bar">
+                <span class="pill" id="today"></span>
+                <span class="pill">Updated manually • vm1</span>
+                <span class="pill">Contact:
+                    <a href="https://wa.me/971567242480">+971 56 724 2480</a></span>
+            </div>
+        </header>
+
+        <main class="grid">
+            <!--
+        HOW TO ADD A NEW LISTING (manual):
+        1) Duplicate a <section class="card"> block below.
+        2) Update CODE, title, location, bullets, price & deposit.
+        3) Replace image sources with your own (Cloudinary/Drive direct links). Hero goes first.
+        4) The WhatsApp button message auto-fills with the CODE.
+      -->
+            <svg style="display:none;">
+                <symbol id="icon-whatsapp" viewBox="0 0 16 16">
+                    <path
+                        d="M13.601 2.326A7.854 7.854 0 0 0 8.002 0C3.584 0 .003 3.579.003 7.993c0 1.406.366 2.777 1.058 3.99L0 16l4.155-1.092a7.964 7.964 0 0 0 3.847.982h.003c4.416 0 8.002-3.58 8.002-7.993a7.91 7.91 0 0 0-2.406-5.571zM8.002 14.65a6.548 6.548 0 0 1-3.33-.912l-.238-.141-2.468.649.658-2.406-.156-.248a6.493 6.493 0 0 1-.998-3.496c0-3.588 2.93-6.514 6.532-6.514a6.49 6.49 0 0 1 4.64 1.926 6.472 6.472 0 0 1 1.893 4.59c0 3.588-2.93 6.514-6.532 6.514zm3.59-4.903c-.195-.097-1.15-.568-1.329-.633-.179-.065-.31-.097-.44.097s-.504.633-.617.761-.228.145-.423.048c-.195-.097-.825-.304-1.572-.97-.58-.52-.97-1.16-1.085-1.355-.114-.195-.012-.3.085-.397.087-.087.195-.228.292-.342.097-.114.13-.195.195-.325.065-.13.032-.243-.016-.34-.048-.097-.44-1.06-.603-1.45-.159-.382-.322-.33-.44-.335-.114-.006-.244-.007-.374-.007s-.34.048-.52.243c-.179.195-.682.665-.682 1.623s.699 1.885.796 2.014c.097.13 1.377 2.1 3.34 2.942.467.202.831.322 1.114.412.467.149.892.128 1.228.078.374-.056 1.15-.469 1.312-.922.162-.454.162-.845.113-.922-.048-.078-.179-.13-.374-.228z" />
+                </symbol>
+            </svg>
+
+            <!-- LISTING 1 -->
+            <section class="card" data-code="GHAZ-2025-10-20-001">
+                <div class="card-inner">
+                    <div class="gallery">
+                        <!-- Replace with your real links. The first item can be video as hero if needed. -->
+                        <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823746/IMG-20250924-WA0081_ozaaym.jpg" alt="Studio hero" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823732/IMG-20250924-WA0082_mywekf.jpg" alt="Studio photo" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823731/IMG-20250924-WA0079_ok3e8g.jpg" alt="Studio photo" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823745/IMG-20250924-WA0083_yawswr.jpg" alt="Studio photo" />
+                    </div>
+                    <div class="details">
+                        <div class="code">Code: GHAZ-2025-10-20-001</div>
+                        <div class="h2">Studio – Al Nuaimiya</div>
+                        <div class="meta">
+                            Near Safeer Mall • Bills Included • New Furniture
+                        </div>
+                        <div class="badges">
+                            <span class="badge">AC & Internet Included</span>
+                            <span class="badge">Parking</span>
+                            <span class="badge">Elevator Building</span>
+                        </div>
+                        <ul class="list">
+                            <li>Monthly: <span class="price">AED 2,800</span></li>
+                            <li>Refundable Deposit: AED 500</li>
+                            <li>Extras: Electricity, water, internet included</li>
+                        </ul>
+                        <div class="btns">
+                            <a class="btn" target="_blank" rel="noopener" id="wa-1">
+                                <svg class="icon-wa">
+                                    <use href="#icon-whatsapp"></use>
+                                </svg>
+                                <span>WhatsApp</span>
+                            </a>
+                            <button class="btn secondary" onclick="copyCode(this)">
+                                Copy Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LISTING 2 -->
+            <section class="card" data-code="GHAZ-2025-10-20-002">
+                <div class="card-inner">
+                    <div class="gallery">
+                        <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823755/IMG-20250921-WA0059_aprjhi.jpg"
+                            alt="1BR sea view" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823745/IMG-20250921-WA0056_i5eiyv.jpg" alt="1BR" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823776/IMG-20250921-WA0063_lxc5w7.jpg" alt="1BR" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759823760/IMG-20250921-WA0062_v9poxt.jpg" alt="1BR" />
+                    </div>
+                    <div class="details">
+                        <div class="code">Code: GHAZ-2025-10-20-002</div>
+                        <div class="h2">1 Bedroom + Hall – Corniche Ajman</div>
+                        <div class="meta">
+                            Union Tower • Full Sea View • Second Occupant
+                        </div>
+                        <div class="badges">
+                            <span class="badge">Sea View</span>
+                            <span class="badge">Large Space</span>
+                            <span class="badge">Bills Included</span>
+                        </div>
+                        <ul class="list">
+                            <li>Monthly: <span class="price">AED 3,700</span></li>
+                            <li>Refundable Deposit: AED 500</li>
+                            <li>Commission: AED 1,000</li>
+                        </ul>
+                        <div class="btns">
+                            <a class="btn" target="_blank" rel="noopener" id="wa-2">
+                                <svg class="icon-wa">
+                                    <use href="#icon-whatsapp"></use>
+                                </svg>
+                                <span>WhatsApp</span>
+                            </a>
+                            <button class="btn secondary" onclick="copyCode(this)">
+                                Copy Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LISTING 3 -->
+            <section class="card" data-code="GHAZ-2025-10-20-003">
+                <div class="card-inner">
+                    <div class="gallery">
+                        <img class="hero" src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759824612/IMG-20250920-WA0048_kgl6sg.jpg"
+                            alt="1BR Rashidiya" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759824631/IMG-20250920-WA0044_ezngpn.jpg" alt="Rashidiya" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759825432/IMG-20250920-WA0046_d2h3ch.jpg" alt="Rashidiya" />
+                        <img src="https://res.cloudinary.com/dvnubawk4/image/upload/v1759825473/IMG-20250920-WA0045_xufarj.jpg" alt="Rashidiya" />
+                    </div>
+                    <div class="details">
+                        <div class="code">Code: GHAZ-2025-10-20-003</div>
+                        <div class="h2">1 Bedroom + Hall – Al Rashidiya</div>
+                        <div class="meta">
+                            Behind Grand Mall • New Furniture • All Bills
+                        </div>
+                        <div class="badges">
+                            <span class="badge">Gym & Pool in Building</span>
+                            <span class="badge">Parking</span>
+                            <span class="badge">Family Building</span>
+                        </div>
+                        <ul class="list">
+                            <li>Monthly: <span class="price">AED 3,100</span></li>
+                            <li>Refundable Deposit: AED 500</li>
+                            <li>Move-in: Ready today</li>
+                        </ul>
+                        <div class="btns">
+                            <a class="btn" target="_blank" rel="noopener" id="wa-3">
+                                <svg class="icon-wa">
+                                    <use href="#icon-whatsapp"></use>
+                                </svg>
+                                <span>WhatsApp</span>
+                            </a>
+                            <button class="btn secondary" onclick="copyCode(this)">
+                                Copy Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="divider"></div>
+
+        <footer>
+            © <span id="year"></span> Ghazi Premium Apartments — Managed by Mohamed
+            Ghazi · All prices are monthly unless stated.
+        </footer>
+    </div>
+
+    <script>
+        // Fill today's date pill
+        const today = new Date();
+        document.getElementById("today").textContent =
+            "Date: " +
+            today.toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+            });
+        document.getElementById("year").textContent = today.getFullYear();
+
+        // Build WhatsApp links with prefilled message including the listing code
+        const phone = "971567242480";
+        [...document.querySelectorAll(".card")].forEach((card, idx) => {
+            const code = card.getAttribute("data-code");
+            const title = card.querySelector(".h2").textContent.trim();
+            const price = card.querySelector(".price").textContent.trim();
+            const msg = encodeURIComponent(
+                `Hello, I'm interested in this listing:\n${title}\nPrice: ${price}\nCode: ${code}\nPlease share availability and location pin.`
+            );
+            const link = `https://wa.me/${phone}?text=${msg}`;
+            const a = card.querySelector(`#wa-${idx + 1}`);
+            if (a) a.setAttribute("href", link);
+        });
+
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("themeToggle");
+        const themeMenu = document.getElementById("themeMenu");
+
+        const lightTheme = {
+            "--bg": "#e2e8f0",
+            "--card": "#ffffff",
+            "--muted": "#1e293b",
+            "--text": "#0f172a",
+            "--brand": "#15803d",
+            "--accent": "#047857",
+            "--danger": "#b91c1c",
+            "--list": "#334155",
+            "--badge-bg": "#f1f5f9",
+            "--badge-text": "#0f172a",
+            "--pill-bg": "#cbd5e1",
+        };
+        const darkTheme = {
+            "--bg": "#0b0f14",
+            "--card": "#131a22",
+            "--muted": "#a7b1bd",
+            "--text": "#eef3f8",
+            "--brand": "#22c55e",
+            "--accent": "#60a5fa",
+            "--danger": "#f97316",
+            "--list": "#dce7f3",
+            "--badge-bg": "#1b2532",
+            "--badge-text": "#cfe3ff",
+            "--pill-bg": "#18212b",
+        };
+
+        function setTheme(vars) {
+            for (const key in vars) root.style.setProperty(key, vars[key]);
+        }
+        function applyTheme(mode) {
+            if (mode === "system") {
+                const prefersDark = window.matchMedia(
+                    "(prefers-color-scheme: dark)"
+                ).matches;
+                setTheme(prefersDark ? darkTheme : lightTheme);
+                window.matchMedia("(prefers-color-scheme: dark)").onchange = (e) =>
+                    setTheme(e.matches ? darkTheme : lightTheme);
+            } else {
+                setTheme(mode === "dark" ? darkTheme : lightTheme);
+            }
+        }
+
+        let current = localStorage.getItem("theme") || "system";
+        applyTheme(current);
+
+        themeToggle.addEventListener("click", () => {
+            themeMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll("#themeMenu button").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const selected = btn.getAttribute("data-theme");
+                localStorage.setItem("theme", selected);
+                applyTheme(selected);
+                themeMenu.classList.remove("active");
+            });
+        });
+
+        // Copy code helper
+        function copyCode(btn) {
+            const card = btn.closest(".card");
+            const code = card.getAttribute("data-code");
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = "Code Copied ✓";
+                setTimeout(() => (btn.textContent = "Copy Code"), 1200);
+            });
+        }
+    </script>
+</body>
+
+</html>
