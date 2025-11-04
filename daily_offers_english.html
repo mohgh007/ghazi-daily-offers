@@ -46,7 +46,7 @@
             padding: 24px;
         }
 
-        /* Header */
+        /* Page header layout */
         header {
             display: grid;
             gap: 12px;
@@ -93,7 +93,7 @@
             text-decoration: underline;
         }
 
-        /* Cards */
+        /* Listing grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -132,7 +132,7 @@
             }
         }
 
-        /* Gallery */
+        /* Gallery thumbnails */
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -158,7 +158,7 @@
             height: 220px;
         }
 
-        /* Details */
+        /* Listing details column */
         .details {
             padding: 14px 16px 18px;
         }
@@ -254,7 +254,7 @@
             opacity: 0.8;
         }
 
-        /* Theme Toggle */
+        /* Theme toggle controls */
         .theme-container {
             position: fixed;
             top: 18px;
@@ -328,7 +328,7 @@
             transform: scale(1.15);
         }
 
-        /* ====== Scrollbar Styling (for Chrome, Edge, Safari) ====== */
+        /* Custom scrollbars for Chromium/WebKit browsers */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -349,7 +349,7 @@
             border: 2px solid #0b0f14;
         }
 
-        /* ====== Scrollbar Styling for Firefox ====== */
+        /* Custom scrollbars for Firefox */
         @supports (scrollbar-width: thin) and (scrollbar-color: #3a3f46 #0b0f14) {
             * {
                 scrollbar-width: thin;
@@ -357,9 +357,7 @@
             }
         }
 
-        /* ==============================
-            Lightbox Overlay Styles
-        ============================== */
+        /* Lightbox overlay visuals */
         #lightbox {
             position: fixed;
             top: 0;
@@ -461,13 +459,7 @@
         </header>
 
         <main class="grid">
-            <!--
-        HOW TO ADD A NEW LISTING (manual):
-        1) Duplicate a <section class="card"> block below.
-        2) Update CODE, title, location, bullets, price & deposit.
-        3) Replace image sources with your own (Cloudinary/Drive direct links). Hero goes first.
-        4) The WhatsApp button message auto-fills with the CODE.
-        -->
+            <!-- Offers populate dynamically via loadOffers() -->
             <svg class="icon-sprite" aria-hidden="true">
                 <symbol id="icon-whatsapp" viewBox="0 0 16 16">
                     <path
@@ -490,9 +482,7 @@
     </div>
 
     <script>
-        // ==============================
-        // 1️⃣ Fill today's date pill
-        // ==============================
+        // Step 1: Populate the top pill and footer with today's date
         const today = new Date();
         document.getElementById("today").textContent =
             "Date: " +
@@ -503,9 +493,7 @@
             });
         document.getElementById("year").textContent = today.getFullYear();
 
-        // ==============================
-        // 2️⃣ Theme Management (Light / Dark / System)
-        // ==============================
+        // Step 2: Handle theme switching (light, dark, or system preference)
         const root = document.documentElement;
         const themeToggle = document.getElementById("themeToggle");
         const themeMenu = document.getElementById("themeMenu");
@@ -569,9 +557,7 @@
             });
         });
 
-        // ==============================
-        // 3️⃣ Copy Code Helper
-        // ==============================
+        // Step 3: Provide a helper to copy the listing code
         function copyCode(btn) {
             const card = btn.closest(".card");
             const code = card.getAttribute("data-code");
@@ -581,9 +567,7 @@
             });
         }
 
-        // ==============================
-        // 4️⃣ Load Offers Dynamically from Netlify Function
-        // ==============================
+        // Step 4: Fetch the latest offers from the Netlify function
         async function loadOffers() {
             const container = document.getElementById("offers-container");
             try {
@@ -638,9 +622,7 @@
                     container.innerHTML += cardHTML;
                 });
 
-                // ==============================
-                // 5️⃣ Build WhatsApp Links after Cards are Loaded
-                // ==============================
+                // Step 5: Build WhatsApp links after cards render
                 const phone = "971567242480";
                 [...document.querySelectorAll(".card")].forEach((card, idx) => {
                     const code = card.getAttribute("data-code");
@@ -661,9 +643,7 @@
             initLightbox();
         }
 
-        // ==============================
-        // 6️⃣ Lightbox Popup for Gallery
-        // ==============================
+        // Step 6: Wire up the lightbox overlay for gallery media
         function initLightbox() {
             const lightbox = document.getElementById("lightbox");
             const mediaContainer = document.getElementById("lightbox-media");
@@ -674,7 +654,7 @@
             let currentMedia = [];
             let currentIndex = 0;
 
-            // فتح اللايت بوكس عند الضغط على أي صورة
+            // Open the lightbox when any gallery image is clicked
             document.querySelectorAll(".gallery img").forEach((img) => {
                 img.addEventListener("click", (e) => {
                     const card = e.target.closest(".card");
@@ -715,13 +695,11 @@
             };
         }
 
-        // Run after page load
+        // Trigger the initial load immediately after parsing
         loadOffers();
     </script>
 
-    <!-- ===================================
-        Lightbox Overlay (Hidden by Default)
-    ===================================== -->
+    <!-- Lightbox overlay markup (hidden until needed) -->
     <div id="lightbox" class="hidden">
         <span id="lightbox-close">&times;</span>
         <button id="lightbox-prev">‹</button>

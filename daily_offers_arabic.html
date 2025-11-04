@@ -46,7 +46,7 @@
       padding: 24px;
     }
 
-    /* Header */
+    /* Page header layout */
     header {
       display: grid;
       gap: 12px;
@@ -95,7 +95,7 @@
       text-decoration: underline;
     }
 
-    /* Cards */
+    /* Listing grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -131,7 +131,7 @@
       }
     }
 
-    /* Gallery */
+    /* Gallery thumbnails */
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -157,7 +157,7 @@
       height: 220px;
     }
 
-    /* Details */
+    /* Listing details column */
     .details {
       padding: 14px 16px 18px;
       text-align: right;
@@ -254,7 +254,7 @@
       opacity: 0.8;
     }
 
-    /* Theme Toggle */
+    /* Theme toggle controls */
     .theme-container {
       position: fixed;
       top: 18px;
@@ -328,7 +328,7 @@
       transform: scale(1.15);
     }
 
-    /* ====== Scrollbar Styling (for Chrome, Edge, Safari) ====== */
+    /* Custom scrollbars for Chromium/WebKit browsers */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -349,7 +349,7 @@
       border: 2px solid #0b0f14;
     }
 
-    /* ====== Scrollbar Styling for Firefox ====== */
+    /* Custom scrollbars for Firefox */
     @supports (scrollbar-width: thin) and (scrollbar-color: #3a3f46 #0b0f14) {
       * {
         scrollbar-width: thin;
@@ -357,9 +357,7 @@
       }
     }
 
-    /* ==============================
-   Lightbox Overlay Styles (Arabic)
-============================== */
+    /* Lightbox overlay visuals */
     #lightbox {
       position: fixed;
       top: 0;
@@ -422,18 +420,18 @@
     #lightbox-close {
       top: 20px;
       left: 30px;
-      /* انعكاس للاتجاه العربي */
+      /* Mirror placement for RTL layout */
       font-size: 2.4rem;
     }
 
     #lightbox-prev {
       right: 50px;
-      /* انعكاس للاتجاه العربي */
+      /* Mirror placement for RTL layout */
     }
 
     #lightbox-next {
       left: 50px;
-      /* انعكاس للاتجاه العربي */
+      /* Mirror placement for RTL layout */
     }
   </style>
 </head>
@@ -463,13 +461,7 @@
     </header>
 
     <main class="grid">
-      <!--
-        طريقة إضافة عرض جديد (يدويًا):
-        1) انسخ بلوك <section class="card"> بالكامل.
-        2) غيّر الكود، العنوان، الموقع، التفاصيل، السعر، والتأمين.
-        3) استبدل روابط الصور بروابطك الخاصة (Cloudinary أو Drive مباشر).
-        4) زر الواتساب يولّد الرسالة تلقائيًا باستخدام الكود.
-      -->
+      <!-- Offers populate dynamically via loadOffers() -->
       <svg class="icon-sprite" aria-hidden="true">
         <symbol id="icon-whatsapp" viewBox="0 0 16 16">
           <path
@@ -489,9 +481,7 @@
   </div>
 
   <script>
-    // ==============================
-    // 1️⃣ تعبئة تاريخ اليوم في الشريط العلوي
-    // ==============================
+    // Step 1: Populate the top pill and footer with today's date
     const today = new Date();
     document.getElementById("today").textContent =
       "التاريخ: " +
@@ -502,9 +492,7 @@
       });
     document.getElementById("year").textContent = today.getFullYear();
 
-    // ==============================
-    // 2️⃣ إدارة المظهر (فاتح / داكن / تلقائي)
-    // ==============================
+    // Step 2: Handle theme switching (light, dark, or system preference)
     const root = document.documentElement;
     const themeToggle = document.getElementById("themeToggle");
     const themeMenu = document.getElementById("themeMenu");
@@ -566,9 +554,7 @@
       });
     });
 
-    // ==============================
-    // 3️⃣ وظيفة نسخ الكود
-    // ==============================
+    // Step 3: Provide a helper to copy the listing code
     function copyCode(btn) {
       const card = btn.closest(".card");
       const code = card.getAttribute("data-code");
@@ -578,9 +564,7 @@
       });
     }
 
-    // ==============================
-    // 4️⃣ تحميل العروض ديناميكيًا من دالة Netlify
-    // ==============================
+    // Step 4: Fetch the latest offers from the Netlify function
     async function loadOffers() {
       const container = document.getElementById("offers-container");
       try {
@@ -630,9 +614,7 @@
           container.innerHTML += cardHTML;
         });
 
-        // ==============================
-        // 5️⃣ إنشاء روابط واتساب بعد تحميل الكروت
-        // ==============================
+        // Step 5: Build WhatsApp links after cards render
         const phone = "971567242480";
         [...document.querySelectorAll(".card")].forEach((card, idx) => {
           const code = card.getAttribute("data-code");
@@ -653,9 +635,7 @@
       initLightbox();
     }
 
-    // ==============================
-    // 6️⃣ عارض الصور (Lightbox Popup)
-    // ==============================
+    // Step 6: Wire up the lightbox overlay for gallery media
     function initLightbox() {
       const lightbox = document.getElementById("lightbox");
       const mediaContainer = document.getElementById("lightbox-media");
@@ -666,6 +646,7 @@
       let currentMedia = [];
       let currentIndex = 0;
 
+      // Open the lightbox when any gallery image is clicked
       document.querySelectorAll(".gallery img").forEach((img) => {
         img.addEventListener("click", (e) => {
           const card = e.target.closest(".card");
@@ -705,13 +686,11 @@
       };
     }
 
-    // تشغيل التحميل عند فتح الصفحة
+    // Trigger the initial load immediately after parsing
     loadOffers();
   </script>
 
-  <!-- ==============================
-        عارض الصور (Popup Lightbox)
-    ============================== -->
+  <!-- Lightbox overlay markup (hidden until needed) -->
   <div id="lightbox" class="hidden">
     <span id="lightbox-close">&times;</span>
     <button id="lightbox-prev">‹</button>
