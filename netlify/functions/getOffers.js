@@ -11,9 +11,9 @@ export async function handler() {
     await client.connect();
 
     const res = await client.query(`
-      SELECT code, title, description, features, area, price, deposit, commission, images 
-      FROM offers 
-      WHERE available = true 
+      SELECT flat_code, title, description, features, area, price, deposit, commission, images
+      FROM offers
+      WHERE available = true
       ORDER BY id ASC;
     `);
 
